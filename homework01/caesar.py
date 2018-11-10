@@ -16,7 +16,7 @@ def encrypt_caesar(plaintext):
         if ord('a') <= code <= ord('z') or ord('A') <= code <= ord('Z'):
             code = code + 3
             ciphertext += chr(code)
-        if code > ord ('z') or code < ord('a') and code > ord('Z'):
+        if code > ord('z') or code < ord('a') and code > ord('Z'):
             code -= 26
             ciphertext += chr(code)
         else:
