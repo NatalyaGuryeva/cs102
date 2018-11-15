@@ -53,8 +53,8 @@ def multiplicative_inverse(e, phi):
             e = e % phi
         else:
             phi = phi % e
-    print(e+phi)
-    
+    d = 1/(e+phi)
+    print(d)
     
     pass
 
