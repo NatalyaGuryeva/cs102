@@ -12,12 +12,10 @@ def is_prime(n):
     False
     """
     
-    a = [range(2, n)]
-    a1 = a
-    for i in range(2, n):
-        if n % i == 0:
-            a.remove(i)
-    if a == a1:
+    i = 2
+    while i**2 <= n and n % i != 0:
+        i += 1
+    if i**2 > n:
         print('True')
     else:
         print('False')
@@ -66,7 +64,7 @@ def generate_keypair(p, q):
         raise ValueError('p and q cannot be equal')
 
     # n = pq
-    p, q = int(input(' ')).split(',')
+    p, q = (input(' ')).split(',')
     generate_keypair(p, q)
     if is_prime(p) and is_prime(q):
         n = p*q
