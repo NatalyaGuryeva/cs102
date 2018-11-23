@@ -11,7 +11,7 @@ def is_prime(n):
     >>> is_prime(8)
     False
     """
-    
+
     i = 2
     while i**2 <= n and n % i != 0:
         i += 1
@@ -19,7 +19,6 @@ def is_prime(n):
         print('True')
     else:
         print('False')
-    pass
 
 
 def gcd(a, b):
@@ -36,7 +35,6 @@ def gcd(a, b):
         else:
             b = b % a
     print(a+b)
-    pass
 
 
 def multiplicative_inverse(e, phi):
@@ -53,8 +51,6 @@ def multiplicative_inverse(e, phi):
             phi = phi % e
     d = 1/(e+phi)
     print(d)
-    
-    pass
 
 
 def generate_keypair(p, q):
