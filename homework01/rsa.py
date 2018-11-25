@@ -44,8 +44,6 @@ def multiplicative_inverse(e, phi):
     >>> multiplicative_inverse(7, 40)
     23
     """
-    
-    
     for d in range(e, phi):
         if e*d % phi == 1:
             print(d)
