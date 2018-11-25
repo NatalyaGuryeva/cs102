@@ -44,14 +44,11 @@ def multiplicative_inverse(e, phi):
     >>> multiplicative_inverse(7, 40)
     23
     """
-    while e != 0 and phi != 0:
-        if e > phi:
-            e = e % phi
-        else:
-            phi = phi % e
-    d = 1/(e+phi)
-    print(d)
-
+    
+    
+    for d in range(e, phi):
+        if e*d % phi == 1:
+            print(d)
 
 def generate_keypair(p, q):
     if not (is_prime(p) and is_prime(q)):
