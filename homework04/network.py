@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from api import get_friends
 import time
 import igraph
