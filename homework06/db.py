@@ -22,6 +22,6 @@ class News(Base):
 Base.metadata.create_all(bind=engine)
 
 s = session()
-news = get_news('https://news.ycombinator.com/newest', n_pages = 34)
+news = News(get_news('https://news.ycombinator.com/newest', n_pages = 34))
 s.add(news)
 s.commit()
