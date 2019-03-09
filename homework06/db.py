@@ -2,7 +2,6 @@ from sqlalchemy import Column, String, Integer
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-from scraputils.py import get_news
 
 Base = declarative_base()
 engine = create_engine("sqlite:///news.db")
@@ -20,8 +19,3 @@ class News(Base):
     label = Column(String)
 
 Base.metadata.create_all(bind=engine)
-
-s = session()
-news = News(get_news('https://news.ycombinator.com/newest', n_pages = 34))
-s.add(news)
-s.commit()
