@@ -25,8 +25,8 @@ def extract_news(soup):
     tags.pop()
     for i in range(31):
         title = tags[0].find('a', class_= "storylink").text
-        url = tags[0].find('a', class_="storylink").get('href')
         author = tags[1].find('a', class_="hnuser").text
+        url = tags[0].find('a', class_="storylink").get('href')
         points = [int(s) for s in tags[1].find('span', class_= "score").text if s.isdigit()]
         comments = tags[1].find_all('td')[1].find_all('a')[5].text
         if comments != 'discuss':
