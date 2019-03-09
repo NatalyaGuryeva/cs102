@@ -31,6 +31,8 @@ def extract_news(soup):
         comments = tags[1].find_all('td')[1].find_all('a')[5].text
         if comments != 'discuss':
             comments = [int(s) for s in tags[1].find_all('td')[1].find_all('a')[5].text if s.isdigit()]
+        else:
+            comments = 0
         news_list.append({
             'title': title,
             'author': author,
