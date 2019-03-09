@@ -44,7 +44,6 @@ def extract_news(soup):
         del tags[1]
     return news_list
 
-
 def extract_next_page(soup):
     """ Extract next page URL """
     n = soup.find('a', class_= "morelink")
