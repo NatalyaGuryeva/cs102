@@ -23,12 +23,12 @@ def extract_news(soup):
     del tags[2::3]
     tags.pop()
     tags.pop()
-    for i in range(31):
+    for i in range(30):
         title = tags[0].find('a', class_= "storylink").text
-        author = tags[1].find('a', class_="hnuser").text
         url = tags[0].find('a', class_="storylink").get('href')
-        points = [int(s) for s in tags[1].find('span', class_= "score").text if s.isdigit()]
-        comments = tags[1].find_all('td')[1].find_all('a')[5].text
+        author = tags[1].find('a', class_="hnuser").text
+        points = [int(s) for s in tags[1].find('span', class_="score").text if s.isdigit()]
+        comments = [int(s) for s in tags[1].find_all('td')[1].find_all('a')[5].text if s.isdigit()]
         if comments != 'discuss':
             comments = [int(s) for s in tags[1].find_all('td')[1].find_all('a')[5].text if s.isdigit()]
         else:
@@ -41,8 +41,9 @@ def extract_news(soup):
             'comments': comments
         })
         del tags[0]
-        del tags[1]
+        del tags[0]
     return news_list
+
 
 def extract_next_page(soup):
     """ Extract next page URL """
