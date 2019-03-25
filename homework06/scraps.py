@@ -29,15 +29,15 @@ def extract_news(soup):
         author = tags[1].find('a', class_="hnuser").text
         points = [int(s) for s in tags[1].find('span', class_="score").text if s.isdigit()]
         comments = [int(s) for s in tags[1].find_all('td')[1].find_all('a')[5].text if s.isdigit()]
-        if comments != 'discuss':
-            comments = [int(s) for s in tags[1].find_all('td')[1].find_all('a')[5].text if s.isdigit()]
+        if comments != []:
+            comments = comments[0]
         else:
             comments = 0
         news_list.append({
             'title': title,
             'author': author,
             'url': url,
-            'points': points,
+            'points': points[0],
             'comments': comments
         })
         del tags[0]
